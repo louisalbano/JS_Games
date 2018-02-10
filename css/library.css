@@ -1,0 +1,40 @@
+#library {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#library table, th, td {
+  /* border: 1px solid black; */
+  text-align: center;
+}
+
+#library th, td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px
+}
+
+#add {
+  float: right;
+}
+
+.toggle-content {
+	display: none;
+}
+
+.toggle-content.is-visible {
+	display: inline-block;
+}
+
+input[type='text'] {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input[type='checkbox'] {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
