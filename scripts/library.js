@@ -56,10 +56,16 @@ function addBookToLibrary(library) {
   }
 
   // Add checkbox for Read
+  const checkboxContainer = document.createElement('label');
+  checkboxContainer.classList.add('checkbox-container');
   const cell = document.createElement('td');
-  const cellField = document.createElement('input')
-  cellField.type = 'checkbox';
-  cell.appendChild(cellField);
+  const checkbox = document.createElement('input')
+  const span = document.createElement('span');
+  span.classList.add('checkmark')
+  checkbox.type = 'checkbox';
+  checkboxContainer.appendChild(checkbox);
+  checkboxContainer.appendChild(span);
+  cell.appendChild(checkboxContainer);
   row.appendChild(cell);
 
   tableBody.appendChild(row);

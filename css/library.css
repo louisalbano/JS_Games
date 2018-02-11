@@ -3,19 +3,28 @@
   border-collapse: collapse;
 }
 
+#container {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
 #library table, th, td {
-  /* border: 1px solid black; */
   text-align: center;
 }
 
 #library th, td {
-  border: 1px solid black;
+  border-top: 1px solid #2119193d;
   text-align: center;
   padding: 10px
 }
 
 #add {
   float: right;
+}
+
+#cancel {
+  background-color: #23242961;
 }
 
 .toggle-content {
@@ -28,13 +37,105 @@
 
 input[type='text'] {
   width: 100%;
+  border-radius: 3px;
+  border: none;
+  font-size: 16px;
+  padding: 3px;
+  text-align: center;
+  background-color: #eeeeef;
+}
+
+input {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-input[type='checkbox'] {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+button {
+  border: none;
+  border-radius: 3px;
+  padding: 10px 16px;
+  background-color: #3ec9ff;
+  color: white;
+  font-weight: bold;
+  margin: 5px 2px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+td {
+  min-width: 70px;
+}
+
+/* Checkbox styling copied from w3schools */
+
+/* Customize the label (the container) */
+.checkbox-container {
+  position: relative;
+  padding-top: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  opacity: 0;
+  left: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
