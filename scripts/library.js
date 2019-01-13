@@ -71,14 +71,22 @@ function addBookToLibrary(library) {
   tableBody.appendChild(row);
 }
 
+function toggleRead(library, element) {
+  library[element.dataset.row].read = !library[element.dataset.row].read;
+  element.childNodes[0].nodeValue = library[element.dataset.row].read
+    ? 'Read' : 'Not Read';
+}
+
 function render(library) {
   const tableBody = document.querySelector('#books');
+  var rowCount = 0;
 
   // build table body
   library.forEach(element => {
     const row = document.createElement('tr');
 
     for (var key in element) {
+
       let value =
         key === 'read'
           ? element[key]
@@ -87,11 +95,27 @@ function render(library) {
           : element[key];
       const cell = document.createElement('td');
       const cellText = document.createTextNode(value);
-      cell.appendChild(cellText);
+      if (key === 'read') {
+        const cellButton = document.createElement('button');
+        cellButton.dataset.row = rowCount;
+        cellButton.classList.add('read');
+        cellButton.appendChild(cellText);
+        cell.appendChild(cellButton);
+      }
+      else {
+        cell.appendChild(cellText);
+      }
       row.appendChild(cell);
     }
+    rowCount++;
     tableBody.appendChild(row)
   });
+  const readButtons = document.getElementsByClassName('read');
+  for (i = 0; i < readButtons.length; i++) {
+    readButtons[i].addEventListener('click', (e) => {
+      toggleRead(library, e.currentTarget);
+    });
+  }
 }
 
 //#endregion
